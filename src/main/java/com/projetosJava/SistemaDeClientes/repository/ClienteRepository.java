@@ -14,4 +14,5 @@ public interface ClienteRepository extends JpaRepository<ClienteModel, Long> {
     Optional<ClienteModel> buscarPorEmail(String email);
     Optional<ClienteModel> buscarPorTelefone(String telefone);
     void deletarById(Long id);
+
 }
