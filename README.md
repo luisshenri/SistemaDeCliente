@@ -1,51 +1,74 @@
-# SistemaDeCliente
-Projeto da faculdade da matéria de tópicos avançados II
+# Sistema de Gerenciamento de Clientes
 
-📌 Descrição do Projeto
-Projeto desenvolvido para a disciplina de Tópicos Avançados II da faculdade. O objetivo é criar um sistema de gerenciamento de clientes com operações CRUD (Create, Read, Update, Delete) completas, seguindo boas práticas de desenvolvimento.
+## 🎓 Projeto Acadêmico — Tópicos Avançados II
 
-🎯 Objetivos
-Implementar um sistema de cadastro e gerenciamento de clientes.
-Garantir que o projeto siga o padrão MVC (Model-View-Controller).
-Aplicar os princípios SOLID.
-Utilizar boas práticas de programação.
+Este projeto foi desenvolvido como parte da disciplina de **Tópicos Avançados II** da faculdade. O objetivo é criar um sistema completo de gerenciamento de clientes, utilizando boas práticas de desenvolvimento e arquitetura de software.
 
-📋 Requisitos
-Funcionais:
+---
 
-Cadastrar, listar, atualizar e excluir clientes.
-Validação de dados (ex: CPF, e-mail, campos obrigatórios).
-Interface intuitiva (pode ser CLI ou GUI).
+## 📌 Descrição
 
-Técnicos:
+Sistema CRUD (Create, Read, Update, Delete) para cadastro e gerenciamento de clientes, com foco em qualidade de código, arquitetura limpa e aplicação dos princípios SOLID.
 
-Arquitetura MVC:
+---
 
-Model: Lógica de negócio e acesso a dados.
-View: Interface com o usuário.
-Controller: Intermediário entre Model e View.
+## 🎯 Objetivos
 
-Princípios SOLID:
-Single Responsibility Principle (SRP).
-Open/Closed Principle (OCP).
-Liskov Substitution Principle (LSP).
-Interface Segregation Principle (ISP).
-Dependency Inversion Principle (DIP).
+- Desenvolver um sistema funcional para gerenciamento de clientes.
+- Aplicar o padrão arquitetural **MVC (Model-View-Controller)**.
+- Implementar os **princípios SOLID**.
+- Adotar boas práticas de programação e organização de código.
 
-Boas práticas:
-Código limpo e documentado.
-Tratamento de exceções.
-Testes unitários (opcional, mas recomendado).
+---
 
+## 📋 Requisitos
 
-🛠 Tecnologias Utilizadas
+### Funcionais
 
-Linguagem: [Inserir linguagem, ex: Java, C#, Python].
+- Cadastrar, listar, atualizar e excluir clientes.
+- Validação de dados (ex: CPF, e-mail, campos obrigatórios).
+- Interface intuitiva (CLI ou GUI).
 
-Banco de Dados: [Inserir BD, ex: MySQL, PostgreSQL, SQLite].
+### Técnicos
 
-Frameworks/Libs: [Inserir frameworks, ex: Spring Boot, Django, .NET].
+#### Arquitetura MVC
 
-📂 Estrutura do Projeto
+- **Model**: Representa as entidades e regras de negócio.
+- **View**: Interface com o usuário.
+- **Controller**: Intermediação entre Model e View.
 
-SistemaDeCliente/ ├── src/ │ ├── controller/ # Lógica de controle │ ├── model/ # Entidades e regras de negócio │ ├── view/ # Interface do usuário │ └── repository/ # Acesso a dados (opcional) ├── tests/ # Testes unitários (opcional) ├── docs/ # Documentação └── README.md
+#### Princípios SOLID
+
+- **SRP** – Princípio da Responsabilidade Única  
+- **OCP** – Princípio Aberto/Fechado  
+- **LSP** – Princípio da Substituição de Liskov  
+- **ISP** – Princípio da Segregação de Interface  
+- **DIP** – Princípio da Inversão de Dependência  
+
+#### Boas Práticas
+
+- Código limpo e bem documentado.
+- Tratamento adequado de exceções.
+- Separação clara de responsabilidades.
+
+---
+
+## 🛠 Tecnologias Utilizadas
+
+- **Linguagem**: Java  
+- **Banco de Dados**: MySQL e H2 (para testes)  
+- **Framework**: Spring Boot  
+
+---
+
+## 📂 Estrutura do Projeto
+
+SistemaDeCliente/
+├── src/
+│   ├── controller/     # Camada de controle (Controllers)
+│   ├── model/          # Entidades e lógica de negócio
+│   ├── view/           # Interface com o usuário (CLI ou GUI)
+│   └── repository/     # Acesso a dados (DAO)
+├── tests/              # Testes unitários e de integração
+├── docs/               # Documentação do projeto
+└── README.md           # Este arquivo
