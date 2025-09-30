@@ -9,6 +9,7 @@ Implementar um sistema de cadastro e gerenciamento de clientes.
 Garantir que o projeto siga o padrão MVC (Model-View-Controller).
 Aplicar os princípios SOLID.
 Utilizar boas práticas de programação.
+
 📋 Requisitos
 Funcionais:
 
