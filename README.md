@@ -15,25 +15,36 @@ Funcionais:
 Cadastrar, listar, atualizar e excluir clientes.
 Validação de dados (ex: CPF, e-mail, campos obrigatórios).
 Interface intuitiva (pode ser CLI ou GUI).
+
 Técnicos:
 
 Arquitetura MVC:
+
 Model: Lógica de negócio e acesso a dados.
 View: Interface com o usuário.
 Controller: Intermediário entre Model e View.
+
 Princípios SOLID:
 Single Responsibility Principle (SRP).
 Open/Closed Principle (OCP).
 Liskov Substitution Principle (LSP).
 Interface Segregation Principle (ISP).
 Dependency Inversion Principle (DIP).
+
 Boas práticas:
 Código limpo e documentado.
 Tratamento de exceções.
 Testes unitários (opcional, mas recomendado).
+
+
 🛠 Tecnologias Utilizadas
+
 Linguagem: [Inserir linguagem, ex: Java, C#, Python].
+
 Banco de Dados: [Inserir BD, ex: MySQL, PostgreSQL, SQLite].
+
 Frameworks/Libs: [Inserir frameworks, ex: Spring Boot, Django, .NET].
+
 📂 Estrutura do Projeto
+
 SistemaDeCliente/ ├── src/ │ ├── controller/ # Lógica de controle │ ├── model/ # Entidades e regras de negócio │ ├── view/ # Interface do usuário │ └── repository/ # Acesso a dados (opcional) ├── tests/ # Testes unitários (opcional) ├── docs/ # Documentação └── README.md
