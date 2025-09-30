@@ -32,6 +32,7 @@ public class UpdateClientService {
         if (dataNascimento != null) cliente.setDataNascimento(dataNascimento);
 
         return saveClientService.salvarCliente(cliente);
+
     }
 
 

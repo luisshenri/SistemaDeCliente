@@ -29,5 +29,6 @@ public class SearchClientService {
 
     public Optional<ClienteModel> buscarPorTelefone(String telefone){
         return clienteRepository.buscarPorTelefone(telefone);
+
     }
 }
