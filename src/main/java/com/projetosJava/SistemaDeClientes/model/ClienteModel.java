@@ -17,12 +17,11 @@ import java.util.Set;
 public class ClienteModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_cliente;
 
-    private String nome;
+    private String name;
 
-    @OneToOne
     private String cpf;
 
     private String email;

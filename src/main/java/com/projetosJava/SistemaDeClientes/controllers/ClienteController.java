@@ -3,12 +3,13 @@ package com.projetosJava.SistemaDeClientes.controllers;
 
 import com.projetosJava.SistemaDeClientes.model.ClienteModel;
 import com.projetosJava.SistemaDeClientes.service.ClienteService;
+import com.projetosJava.SistemaDeClientes.service.DeleteClientService;
 import com.projetosJava.SistemaDeClientes.service.SaveClientService;
 import com.projetosJava.SistemaDeClientes.service.SearchClientService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,15 +17,18 @@ import java.util.Optional;
 @RestController()
 @RequestMapping("/")
 public class ClienteController {
-    private ClienteService clienteService;
+    private final ClienteService clienteService;
 
-    private SaveClientService saveClientService;
-    private SearchClientService searchClientService;
+    private final DeleteClientService deleteClientService;
 
-    public ClienteController(ClienteService clienteService, SearchClientService searchClientService, SaveClientService saveClientService){
+    private final SaveClientService saveClientService;
+    private final SearchClientService searchClientService;
+
+    public ClienteController(ClienteService clienteService, DeleteClientService deleteClientService,SearchClientService searchClientService, SaveClientService saveClientService){
         this.clienteService = clienteService;
         this.searchClientService = searchClientService;
         this.saveClientService = saveClientService;
+        this.deleteClientService = deleteClientService;
     }
 
 
@@ -33,18 +37,20 @@ public class ClienteController {
         return clienteService.listarTudo();
     }
 
-    @GetMapping("/editar/:id")
+    @GetMapping("/editar/{id}")
     public Optional<ClienteModel> buscarClientePorID(long id){
         return searchClientService.buscarPorId(id);
     }
 
-    @PostMapping("/editar/:id")
+    @PostMapping("/editar/{id}")
     public ClienteModel editarClientePorId(ClienteModel clienteModel){
         return saveClientService.salvarCliente(clienteModel);
     }
 
-
-
-
+    @DeleteMapping("/excluir/{id}")
+    public ResponseEntity<ClienteModel> excluirClientePorID(long id){
+        deleteClientService.deletarUsuario(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
 
 }

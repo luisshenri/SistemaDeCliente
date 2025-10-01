@@ -2,7 +2,10 @@ package com.projetosJava.SistemaDeClientes.service;
 
 import com.projetosJava.SistemaDeClientes.model.ClienteModel;
 import com.projetosJava.SistemaDeClientes.repository.ClienteRepository;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class SaveClientService {
 
     private final ClienteRepository clienteRepository;

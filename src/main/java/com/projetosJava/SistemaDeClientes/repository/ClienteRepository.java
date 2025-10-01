@@ -9,10 +9,9 @@ import java.util.Optional;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<ClienteModel, Long> {
-    Optional<ClienteModel> buscarPorNome(String nome);
-    Optional<ClienteModel> buscarPorCpf(String cpf);
-    Optional<ClienteModel> buscarPorEmail(String email);
-    Optional<ClienteModel> buscarPorTelefone(String telefone);
-    void deletarById(Long id);
+    Optional<ClienteModel> findByName(String nome);
+    Optional<ClienteModel> findByCpf(String cpf);
+    Optional<ClienteModel> findByEmail(String email);
+    Optional<ClienteModel> findByTelefone(String telefone);
 
 }

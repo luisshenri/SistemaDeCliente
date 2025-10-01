@@ -3,10 +3,13 @@ package com.projetosJava.SistemaDeClientes.service;
 import com.projetosJava.SistemaDeClientes.model.ClienteModel;
 import com.projetosJava.SistemaDeClientes.repository.ClienteRepository;
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
+
+@Service
 public class UpdateClientService {
 
     private final ClienteRepository clienteRepository;
@@ -24,7 +27,7 @@ public class UpdateClientService {
         ClienteModel cliente = clienteRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado para o id " + id));
 
-        if (nome != null) cliente.setNome(nome);
+        if (nome != null) cliente.setName(nome);
         if (cpf != null) cliente.setCpf(cpf);
         if (telefone != null) cliente.setTelefone(telefone);
         if (email != null) cliente.setEmail(email);
