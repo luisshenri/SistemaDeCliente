@@ -3,21 +3,19 @@ package com.projetosJava.SistemaDeClientes.service;
 
 import com.projetosJava.SistemaDeClientes.model.ClienteModel;
 import com.projetosJava.SistemaDeClientes.repository.ClienteRepository;
-import jakarta.persistence.EntityNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
 public class ClienteService {
 
+    @Autowired
     private final ClienteRepository clienteRepository;
 
-    public ClienteService(ClienteRepository clienteRepository){
+    public ClienteService(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
     }
 

@@ -2,20 +2,17 @@ package com.projetosJava.SistemaDeClientes.controllers;
 
 
 import com.projetosJava.SistemaDeClientes.model.ClienteModel;
-import com.projetosJava.SistemaDeClientes.service.ClienteService;
-import com.projetosJava.SistemaDeClientes.service.DeleteClientService;
-import com.projetosJava.SistemaDeClientes.service.SaveClientService;
-import com.projetosJava.SistemaDeClientes.service.SearchClientService;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
+import com.projetosJava.SistemaDeClientes.service.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
+
 
 @RestController()
-@RequestMapping("/")
+@RequestMapping("/api/clientes")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ClienteController {
     private final ClienteService clienteService;
 
@@ -24,33 +21,53 @@ public class ClienteController {
     private final SaveClientService saveClientService;
     private final SearchClientService searchClientService;
 
-    public ClienteController(ClienteService clienteService, DeleteClientService deleteClientService,SearchClientService searchClientService, SaveClientService saveClientService){
+    private final UpdateClientService updateClientService;
+
+    public ClienteController(ClienteService clienteService, UpdateClientService updateClientService, DeleteClientService deleteClientService,SearchClientService searchClientService, SaveClientService saveClientService){
         this.clienteService = clienteService;
         this.searchClientService = searchClientService;
         this.saveClientService = saveClientService;
         this.deleteClientService = deleteClientService;
+        this.updateClientService = updateClientService;
     }
 
-
-    @GetMapping("/")
-    public List<ClienteModel> listarClientes(){
-        return clienteService.listarTudo();
+    @GetMapping
+    public ResponseEntity<List<ClienteModel>> listarClientes(){
+        return ResponseEntity.ok(clienteService.listarTudo());
     }
 
-    @GetMapping("/editar/{id}")
-    public Optional<ClienteModel> buscarClientePorID(long id){
-        return searchClientService.buscarPorId(id);
+    @PostMapping("/novo")
+    public ResponseEntity<ClienteModel> novoForm(@RequestBody ClienteModel clienteModel){
+        try{
+            return ResponseEntity.ok(saveClientService.salvarCliente(clienteModel));
+        }catch (Exception e){
+            System.out.printf("Não foi possível criar o usuário: %s%n", e.getMessage());
+            return ResponseEntity.badRequest().build();
+        }
+
     }
 
     @PostMapping("/editar/{id}")
-    public ClienteModel editarClientePorId(ClienteModel clienteModel){
-        return saveClientService.salvarCliente(clienteModel);
+    public ResponseEntity<ClienteModel> editarClientePorId(@PathVariable Long id, @RequestBody ClienteModel clienteModel){
+        try {
+            return ResponseEntity.ok(updateClientService.atualizarDados(id, clienteModel));
+        }catch (RuntimeException e){
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping("/excluir/{id}")
-    public ResponseEntity<ClienteModel> excluirClientePorID(long id){
+    public ResponseEntity<Void> excluirCliente(@PathVariable Long id){
         deleteClientService.deletarUsuario(id);
-        return ResponseEntity.status(HttpStatus.OK).build();
+        return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/detalhes/{id}")
+    public ResponseEntity<ClienteModel> detalhesCliente(@PathVariable Long id){
+        return searchClientService.buscarPorId(id)
+                .map(ResponseEntity::ok)
+                .orElseThrow();
+    }
+
 
 }

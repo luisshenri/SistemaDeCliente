@@ -3,6 +3,7 @@ package com.projetosJava.SistemaDeClientes.service;
 import com.projetosJava.SistemaDeClientes.model.ClienteModel;
 import com.projetosJava.SistemaDeClientes.repository.ClienteRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
@@ -16,7 +17,10 @@ public class SearchClientService {
         this.clienteRepository = clienteRepository;
     }
 
-    public Optional<ClienteModel> buscarPorId(Long id){
+    public Optional<ClienteModel> buscarPorId(@RequestParam Long id){
+        if (!clienteRepository.existsById(id)){
+            throw new RuntimeException("Cliente não existe");
+        }
         return clienteRepository.findById(id);
     }
 

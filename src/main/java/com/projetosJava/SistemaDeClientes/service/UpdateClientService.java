@@ -22,19 +22,22 @@ public class UpdateClientService {
     }
 
     @Transactional
-    public ClienteModel atualizarDados(Long id, String nome, String cpf, String telefone, String email, String endereco, Date dataNascimento){
+    public ClienteModel atualizarDados(Long id, ClienteModel clienteModel){
 
-        ClienteModel cliente = clienteRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Cliente não encontrado para o id " + id));
+        return clienteRepository.findById(id).map(cliente -> {
+                    cliente.setName(clienteModel.getName());
+                    cliente.setCpf(clienteModel.getCpf());
+                    cliente.setEmail(clienteModel.getEmail());
+                    cliente.setDataNascimento(clienteModel.getDataNascimento());
+                    cliente.setEndereco(clienteModel.getEndereco());
+                    cliente.setTelefone(clienteModel.getTelefone());
+                    return clienteRepository.save(cliente);
+        }).orElseThrow(
+                () -> new EntityNotFoundException
+                        ("Cliente não encontrado para o id " + id)
+        );
 
-        if (nome != null) cliente.setName(nome);
-        if (cpf != null) cliente.setCpf(cpf);
-        if (telefone != null) cliente.setTelefone(telefone);
-        if (email != null) cliente.setEmail(email);
-        if (endereco != null) cliente.setEndereco(endereco);
-        if (dataNascimento != null) cliente.setDataNascimento(dataNascimento);
 
-        return saveClientService.salvarCliente(cliente);
 
     }
 
