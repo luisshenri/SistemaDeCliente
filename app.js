@@ -58,7 +58,7 @@ app.get('/editar/:id', async (req, res) => {
 
 app.post('/editar/:id', async (req, res) => {
   try{
-    await axios.post(`${SPRING_BOOT}/clientes/editar${req.params.id}`, req.body);
+    await axios.post(`${SPRING_BOOT}/clientes/editar/${req.params.id}`, req.body);
     res.redirect('/');
   }catch(error){
     console.error('Erro ao atualizar cliente: ', error.message);
