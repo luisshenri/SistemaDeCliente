@@ -1,74 +1,70 @@
-# Sistema de Gerenciamento de Clientes
+# Sistema de Cliente
 
-## 🎓 Projeto Acadêmico — Tópicos Avançados II
+## 📖 Sobre o Projeto
 
-Este projeto foi desenvolvido como parte da disciplina de **Tópicos Avançados II** da faculdade. O objetivo é criar um sistema completo de gerenciamento de clientes, utilizando boas práticas de desenvolvimento e arquitetura de software.
+O Sistema de Cliente é um projeto desenvolvido durante a disciplina de **Tópicos Avançados II**, com o objetivo de aplicar conceitos de desenvolvimento de software, modelagem de sistemas, organização de código e boas práticas de programação.
 
----
-
-## 📌 Descrição
-
-Sistema CRUD (Create, Read, Update, Delete) para cadastro e gerenciamento de clientes, com foco em qualidade de código, arquitetura limpa e aplicação dos princípios SOLID.
+Este sistema foi criado em ambiente acadêmico para fins de aprendizado e evolução técnica, simulando cenários reais de gerenciamento e cadastro de clientes.
 
 ---
 
-## 🎯 Objetivos
+## 🎯 Objetivos do Projeto
 
-- Desenvolver um sistema funcional para gerenciamento de clientes.
-- Aplicar o padrão arquitetural **MVC (Model-View-Controller)**.
-- Implementar os **princípios SOLID**.
-- Adotar boas práticas de programação e organização de código.
+- Desenvolver uma aplicação estruturada utilizando boas práticas de programação.
+- Aplicar conceitos aprendidos em sala de aula.
+- Trabalhar com persistência de dados.
+- Implementar operações de cadastro, consulta, alteração e remoção de clientes.
+- Exercitar lógica de programação e arquitetura de software.
 
 ---
 
-## 📋 Requisitos
+## 🚀 Funcionalidades
 
-### Funcionais
-
-- Cadastrar, listar, atualizar e excluir clientes.
-- Validação de dados (ex: CPF, e-mail, campos obrigatórios).
-- Interface intuitiva (CLI ou GUI).
-
-### Técnicos
-
-#### Arquitetura MVC
-
-- **Model**: Representa as entidades e regras de negócio.
-- **View**: Interface com o usuário.
-- **Controller**: Intermediação entre Model e View.
-
-#### Princípios SOLID
-
-- **SRP** – Princípio da Responsabilidade Única  
-- **OCP** – Princípio Aberto/Fechado  
-- **LSP** – Princípio da Substituição de Liskov  
-- **ISP** – Princípio da Segregação de Interface  
-- **DIP** – Princípio da Inversão de Dependência  
-
-#### Boas Práticas
-
-- Código limpo e bem documentado.
-- Tratamento adequado de exceções.
-- Separação clara de responsabilidades.
+- Cadastro de clientes
+- Consulta de clientes
+- Atualização de informações
+- Remoção de registros
+- Validação de dados
+- Organização em camadas de negócio
 
 ---
 
 ## 🛠 Tecnologias Utilizadas
 
-- **Linguagem**: Java  
-- **Banco de Dados**: MySQL e H2 (para testes)  
-- **Framework**: Spring Boot  
+As tecnologias utilizadas podem variar conforme a branch do projeto.
+
+Exemplos:
+
+- Java
+- Spring Boot
+- Maven
+- HTML
+- CSS
+- JavaScript
+- Banco de Dados Relacional
+
+---
+
+## 🌳 Estrutura de Branches
+
+Este repositório possui **duas branches principais**, cada uma representando uma etapa ou abordagem diferente da implementação do sistema.
+
+### Branch Main
+Contém a versão principal do projeto, utilizada como referência para a evolução do desenvolvimento.
+
+### Branch Secundária
+Contém implementações, melhorias, experimentações ou variações desenvolvidas durante o projeto.
+
+> Recomenda-se verificar ambas as branches para compreender a evolução da aplicação e as diferentes abordagens adotadas durante o desenvolvimento.
 
 ---
 
 ## 📂 Estrutura do Projeto
 
-SistemaDeCliente/
-├── src/
-│   ├── controller/     # Camada de controle (Controllers)
-│   ├── model/          # Entidades e lógica de negócio
-│   ├── view/           # Interface com o usuário (CLI ou GUI)
-│   └── repository/     # Acesso a dados (DAO)
-├── tests/              # Testes unitários e de integração
-├── docs/               # Documentação do projeto
-└── README.md           # Este arquivo
+```text
+src/
+├── controller/
+├── service/
+├── repository/
+├── model/
+└── resources/
